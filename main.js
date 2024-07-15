@@ -4,10 +4,11 @@ const express = require('express');
 const twitter = require('./platforms/twitter');
 const facebook = require('./platforms/facebook');
 
-const app = express();
+// myapp is a custom variable, app is a module needed to run the application
+const myapp = express();
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
+myapp.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
