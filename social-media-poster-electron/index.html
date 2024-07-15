@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Poster</title>
+  </head>
+  <body>
+    <h1>Social Media Poster</h1>
+    <button id="post-twitter">Post to Twitter</button>
+    <button id="post-facebook">Post to Facebook</button>
+
+    <script>
+      const { ipcRenderer } = require('electron');
+
+      document.getElementById('post-twitter').addEventListener('click', () => {
+        ipcRenderer.invoke('post-twitter', 'Hello, Twitter!').then(response => {
+          console.log(response);
+        });
+      });
+
+      document.getElementById('post-facebook').addEventListener('click', () => {
+        ipcRenderer.invoke('post-facebook', 'Hello, Facebook!').then(response => {
+          console.log(response);
+        });
+      });
+    </script>
+  </body>
+</html>
